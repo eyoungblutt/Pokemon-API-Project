@@ -9,8 +9,8 @@ export let displayPokemonAbilities = (data) => {
   for(let i = 0; i < abilityArr.length; i++){
     let abName = abilityArr[i].ability.name;
     let newAbility = document.createElement("p"); 
-   newAbility.id = "pokemonAbilities";
+    newAbility.id = "pokemonAbilities";
     newAbility.innerHTML = abName;
-     document.getElementById("pokemonCard").appendChild(newAbility);
+    document.getElementById("pokemonCard").appendChild(newAbility);
   }
   }

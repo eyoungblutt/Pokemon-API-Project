@@ -13,6 +13,6 @@ export let displayPokemonStats = (data) => {
     let newStats = document.createElement("p"); 
     newStats.id = "pokemonStats";
     newStats.innerHTML = `${statsName}: ${statsAmount}`;
-     document.getElementById("pokemonCard").appendChild(newStats);
+    document.getElementById("pokemonCard").appendChild(newStats);
   }
   }
