@@ -1,0 +1,82 @@
+#header {
+  background-image: "pokemon-name-meanings-and-origins-u1.jpg";
+}
+
+#heroText {
+  font-size: 40px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 20px;
+}
+
+#heroImage {
+  width: 90%;
+  height: 20%;
+  padding: 0;
+  margin: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#searchBar {
+  position: sticky;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#pokemonCard {
+  border: 2px solid black;
+  max-width: 250px;
+  border-radius: 10px;
+}
+
+#pokemonImage {
+  margin: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  width: 200px;
+  height: 200px;
+}
+
+#pokemonName {
+  margin: 15px;
+  margin-top: 0px;
+  font-size: larger;
+  color: rgb(51, 152, 132);
+}
+
+#pokemonAbilities {
+  margin: 15px;
+  font-size: larger;
+  color: rgb(51, 152, 132);
+}
+
+#pokemonAbilities p {
+  color: black;
+  font-size: small;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#pokemonStats {
+  margin: 15px;
+  font-size: larger;
+  color: rgb(51, 152, 132);
+}
+
+#pokemonStats p {
+  color: black;
+  font-size: small;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/*# sourceMappingURL=pokemonAPI.css.map */
