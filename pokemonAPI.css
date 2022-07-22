@@ -33,9 +33,8 @@
 }
 
 #pokemonCard {
-  border: 2px solid black;
-  max-width: 250px;
-  border-radius: 10px;
+  margin-left: 100px;
+  margin-bottom: 100px;
 }
 
 #pokemonImage {
@@ -44,37 +43,45 @@
   margin-top: 0px;
   width: 200px;
   height: 200px;
+  border: 1px, solid, purple;
 }
 
 #pokemonName {
   margin: 15px;
   margin-top: 0px;
-  font-size: larger;
+  font-size: 30px;
   color: rgb(51, 152, 132);
 }
 
-#pokemonAbilities {
-  margin: 15px;
-  font-size: larger;
-  color: rgb(51, 152, 132);
-}
-
-#pokemonAbilities p {
+#nameInformation {
   color: black;
-  font-size: small;
+  font-size: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
-#pokemonStats {
+#abilitiesHeading {
   margin: 15px;
-  font-size: larger;
+  font-size: 30px;
   color: rgb(51, 152, 132);
 }
 
-#pokemonStats p {
+#pokemonAbilities {
   color: black;
-  font-size: small;
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#statsHeading {
+  margin: 15px;
+  font-size: 30px;
+  color: rgb(51, 152, 132);
+}
+
+#pokemonStats {
+  color: black;
+  font-size: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
 }
