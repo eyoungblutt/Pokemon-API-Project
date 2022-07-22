@@ -14,10 +14,10 @@ let response = await fetch (`https://pokeapi.co/api/v2/pokemon/${searchQuery.val
 if(response.ok){
   let data = await response.json();
   displayPokemonImage(data);
+  displayPokemonName(data);
   displayPokemonAbilities(data);
   displayPokemonStats(data);
-  displayPokemonName(data);
-
+  
 }
 else {
   return "Network Response Error";
