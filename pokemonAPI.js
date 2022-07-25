@@ -10,15 +10,22 @@ document.getElementById('searchButton').addEventListener('click', async () => {
   // will currently accept id number or name of pokemon with all lower case - can not display or search multiple pokemon.
 let response = await fetch (`https://pokeapi.co/api/v2/pokemon/${searchQuery.value.toLowerCase()}`);
 let data = await response.json();
-
 displayPokemonImage(data);
 displayPokemonName(data);
 displayPokemonAbilities(data);
 displayPokemonStats(data);
 
 
+//localStorage.setItem("image", JSON.stringify(displayPokemonImage(data)));
+// localStorage.setItem("name", JSON.stringify(displayPokemonName(data)));
+// localStorage.setItem("abilities", JSON.stringify(displayPokemonAbilities(data)));
+// localStorage.setItem("statistics", JSON.stringify(displayPokemonStats(data)));
+
+
+console.log(localStorage);
 
 })
+
 
 let clearAll = document.getElementById("clearAll");
 clearAll.addEventListener('click', function () {
@@ -26,10 +33,6 @@ clearAll.addEventListener('click', function () {
 } )
 
 
-//have option to sve searches
-//save button that saves searches
-//saved into an array of objects? 
-// have class that constructs a new object from the constructor when the save button is clicked. have the data from the functions save into the constructor and then you can view the array??
 
 
 

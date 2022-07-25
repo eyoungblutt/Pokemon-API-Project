@@ -11,4 +11,3 @@ export let displayPokemonName = (data) => {
   document.getElementById("pokemonCard").appendChild(newHeading);
   document.getElementById("pokemonCard").appendChild(nameInformation);
 }
-
