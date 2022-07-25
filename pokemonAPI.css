@@ -32,9 +32,17 @@
   padding-bottom: 20px;
 }
 
+#errorMessage {
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-weight: bold;
+}
+
 #pokemonCard {
   margin-left: 100px;
   margin-bottom: 100px;
+  max-width: 200px;
 }
 
 #pokemonImage {
@@ -90,4 +98,4 @@
   display: flexbox;
 }
 
-/*# sourceMappingURL=PokemonAPI.css.map */
+/*# sourceMappingURL=pokemonAPI.css.map */
