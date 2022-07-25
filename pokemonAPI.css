@@ -3,14 +3,14 @@
 }
 
 #heroText {
+  position: sticky;
+  top: 20px;
   font-size: 40px;
   padding: 0;
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: sticky;
-  top: 20px;
 }
 
 #heroImage {
@@ -25,7 +25,7 @@
 
 #searchBar {
   position: sticky;
-  top: 20px;
+  top: 40px;
   display: flex;
   justify-content: center;
   padding-top: 20px;
@@ -47,7 +47,7 @@
 }
 
 #pokemonName {
-  margin: 15px;
+  margin: 0px;
   margin-top: 0px;
   font-size: 30px;
   color: rgb(51, 152, 132);
@@ -61,7 +61,7 @@
 }
 
 #abilitiesHeading {
-  margin: 15px;
+  margin-bottom: 2px;
   font-size: 30px;
   color: rgb(51, 152, 132);
 }
@@ -74,7 +74,7 @@
 }
 
 #statsHeading {
-  margin: 15px;
+  margin-bottom: 2px;
   font-size: 30px;
   color: rgb(51, 152, 132);
 }
@@ -86,4 +86,8 @@
   margin-bottom: 0px;
 }
 
-/*# sourceMappingURL=pokemonAPI.css.map */
+#newDiv {
+  display: flexbox;
+}
+
+/*# sourceMappingURL=PokemonAPI.css.map */
