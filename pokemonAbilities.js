@@ -1,7 +1,7 @@
 export let displayPokemonAbilities = (data) => {
   let abilitiesHeading = document.createElement("h3");
   abilitiesHeading.id = "abilitiesHeading";
-  abilitiesHeading.innerHTML = "Abilities: ";
+  abilitiesHeading.innerText = "Abilities: ";
   document.getElementById("pokemonCard").appendChild(abilitiesHeading);
 
 
@@ -10,7 +10,7 @@ export let displayPokemonAbilities = (data) => {
     let abName = abilityArr[i].ability.name;
     let newAbility = document.createElement("p"); 
     newAbility.id = "pokemonAbilities";
-    newAbility.innerHTML = abName;
+    newAbility.innerText = abName;
     document.getElementById("pokemonCard").appendChild(newAbility);
   }
   }

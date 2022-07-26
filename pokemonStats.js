@@ -2,7 +2,7 @@ export let displayPokemonStats = (data) => {
   let statsArr = data.stats;
   let statsHeading = document.createElement("h3");
   statsHeading.id = "statsHeading";
-  statsHeading.innerHTML = "Statistics: "
+  statsHeading.innerText = "Statistics: "
   document.getElementById("pokemonCard").appendChild(statsHeading);
 
 
@@ -12,7 +12,7 @@ export let displayPokemonStats = (data) => {
     let statsAmount = statsArr[i].base_stat;
     let newStats = document.createElement("p"); 
     newStats.id = "pokemonStats";
-    newStats.innerHTML = `${statsName}: ${statsAmount}`;
+    newStats.innerText = `${statsName}: ${statsAmount}`;
     document.getElementById("pokemonCard").appendChild(newStats);
   }
   }

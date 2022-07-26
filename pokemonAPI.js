@@ -4,12 +4,19 @@ import { displayPokemonAbilities } from './pokemonAbilities.js';
 import { displayPokemonStats } from './pokemonStats.js';
 import { clearFields } from './clearFields.js';
 
+
 let searchQuery = document.getElementById("search");
+let objectArr = [];
+
+// store objects into an array as they are created.
+//have array push to localstorage
+//this should show all items in local storage.
+//loop over it after you reduce it 
+  //dev tools application - to delete data.
+//--------------------------------------------------------------------------------
 
 document.getElementById('searchButton').addEventListener('click', async () => {
-
 let response = await fetch (`https://pokeapi.co/api/v2/pokemon/${searchQuery.value.toLowerCase()}`);
-
 if(response.ok === true){
 let data = await response.json();
 document.getElementById("errorMessage").innerText = "";
@@ -18,34 +25,26 @@ displayPokemonName(data);
 displayPokemonAbilities(data);
 displayPokemonStats(data);
 
+function pokemonData(image, pokemonName, abilities, statistics) {
+  this.image = image;
+  this.pokemonName= pokemonName,
+  this.abilities= abilities,
+  this.statistics= statistics
 
-//local storage attempt
-
-let pokemonData = {
-  image: data.sprites.front_default,
-  firstName: data.name,
-  abilities: function(){
-    let abilityArr = data.abilities;
-  for(let i = 0; i < abilityArr.length; i++){
-    let abName = abilityArr[i].ability.name;
-    let newArr = [abName];
-    return newArr;
-  }
-  },
-  statistics: [1,2,3,4]
 };
-console.log(pokemonData);
 
-window.localStorage.setItem("pokemonData", JSON.stringify(pokemonData));
+let newPokemonData =  new pokemonData(data.sprites.front_default, data.name, data.abilities, data.stats);
+objectArr.push(newPokemonData);
+console.log(objectArr);
+localStorage.setItem("objectArr", JSON.stringify(objectArr));
 console.log(localStorage);
-
-console.log(JSON.parse(localStorage.getItem("pokemonData")));
-
 }
 else {
   document.getElementById("errorMessage").innerText = "Oops! Please double check your entry is a pokemon name or index number and try again."};
 
 })
+
+//------------------------------------------------------------------------------
 
 
 let clearAll = document.getElementById("clearAll");
@@ -53,7 +52,7 @@ clearAll.addEventListener('click', function () {
   clearFields();
 } )
 
-
+//---------------------------------------------------------------------------
 
 
 
