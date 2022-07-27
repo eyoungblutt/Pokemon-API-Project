@@ -8,15 +8,13 @@ import { clearFields } from './clearFields.js';
 let searchQuery = document.getElementById("search");
 let objectArr = [];
 
-//option to clear local storage with clear all button?
-
-  //dev tools application - to delete data.
 //--------------------------------------------------------------------------------
 
 document.getElementById('searchButton').addEventListener('click', async () => {
 let response = await fetch (`https://pokeapi.co/api/v2/pokemon/${searchQuery.value.toLowerCase()}`);
 if(response.ok === true){
 let data = await response.json();
+
 document.getElementById("errorMessage").innerText = "";
 displayPokemonImage(data);
 displayPokemonName(data);
@@ -58,6 +56,7 @@ for(let i = 0; i < outLocalStorage.length; i++) {
       document.getElementById("pokemonCard").appendChild(newImage);
     }
     else if (key === "pokemonName"){ 
+
       let newHeading = document.createElement("h3");
       newHeading.innerText = "Name: ";
       newHeading.id = "pokemonName";

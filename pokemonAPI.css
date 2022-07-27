@@ -40,12 +40,14 @@
 }
 
 #pokemonCard {
+  width: 100%;
   margin-left: 100px;
   margin-bottom: 100px;
-  max-width: 200px;
 }
 
 #pokemonImage {
+  display: flex;
+  justify-content: center;
   margin: 20px;
   margin-bottom: 0px;
   margin-top: 0px;
