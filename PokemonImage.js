@@ -1,5 +1,3 @@
-
-
 export let displayPokemonImage = (data) => {
  
   let imageSource = data.sprites.front_default;
