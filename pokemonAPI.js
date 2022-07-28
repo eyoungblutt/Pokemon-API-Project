@@ -9,7 +9,7 @@ let searchQuery = document.getElementById("search");
 let objectArr = [];
 
 //--------------------------------------------------------------------------------
-
+let callAPI = () => {
 document.getElementById('searchButton').addEventListener('click', async () => {
 let response = await fetch (`https://pokeapi.co/api/v2/pokemon/${searchQuery.value.toLowerCase()}`);
 if(response.ok === true){
@@ -38,7 +38,9 @@ localStorage.setItem("objectArr", JSON.stringify(objectArr));
 else {
   document.getElementById("errorMessage").innerText = "Oops! Please double check your entry is a pokemon name or index number and try again."};
 })
+};
 
+callAPI();
 //------------------------------------------------------------------------------
 //gets individual key value pairs for each pokemon's details and displays on screen.
 
