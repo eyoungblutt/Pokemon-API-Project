@@ -10,10 +10,12 @@ let objectArr = [];
 
 //--------------------------------------------------------------------------------
 let callAPI = () => {
-document.getElementById('searchButton').addEventListener('click', async () => {
-let response = await fetch (`https://pokeapi.co/api/v2/pokemon/${searchQuery.value.toLowerCase()}`);
-if(response.ok === true){
-let data = await response.json();
+  
+ document.getElementById('searchButton').addEventListener('click', async () => {
+      let response = await fetch (`https://pokeapi.co/api/v2/pokemon/${searchQuery.value.toLowerCase()}`);
+      if(response.ok === true){
+      let data = await response.json();
+
 
 document.getElementById("errorMessage").innerText = "";
 displayPokemonImage(data);
@@ -108,9 +110,11 @@ for(let i = 0; i < outLocalStorage.length; i++) {
 
 
 let clearAll = document.getElementById("clearAll");
+window.onload=function(){
 clearAll.addEventListener('click', function () {
   clearFields();
 } )
+}
 
 //---------------------------------------------------------------------------
 
