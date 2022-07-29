@@ -19,7 +19,7 @@ let callAPI = () => {
 
 document.getElementById("errorMessage").innerText = "";
 displayPokemonImage(data);
-displayPokemonName(data);
+//displayPokemonName(data);
 displayPokemonAbilities(data);
 displayPokemonStats(data);
 
