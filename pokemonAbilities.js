@@ -1,8 +1,8 @@
 export let displayPokemonAbilities = (data) => {
   let abilityArr = data.abilities;
+
   for(let i = 0; i < abilityArr.length; i++){
-    let abName = abilityArr[i].ability.name;
-    return abName
+   return abilityArr[i].ability.name; 
   }
   }
 
@@ -15,3 +15,7 @@ export let displayPokemonAbilities = (data) => {
   //   newAbility.id = "pokemonAbilities";
   //   newAbility.innerText = abName;
   //   document.getElementById("pokemonCard").appendChild(newAbility);
+
+  // git ignore
+  // debug jest node js
+  //npmi

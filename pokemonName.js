@@ -5,8 +5,6 @@ export let displayPokemonName = (data) => {
 // let newHeading = document.createElement("h3");
 //   newHeading.id = "pokemonName";
 //   newHeading.innerText = "Name: ";
-  
-  
 //   let nameInformation = document.createElement("p");
 //   nameInformation.innerText = pokemonName;
 //   nameInformation.id = "nameInformation";
