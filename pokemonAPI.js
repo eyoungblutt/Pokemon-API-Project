@@ -66,26 +66,26 @@ for(let i = 0; i < outLocalStorage.length; i++) {
       pokemonCard.innerHTML += `<img src="${value}" class="pokemonImage">`
     }
     else if (key === "pokemonName"){ 
-      pokemonCard.innerHTML += `<h3 class="pokemonName">Name: <h3>
-      <p class ="nameInformation"> ${value}<p>`;
+      pokemonCard.innerHTML += `<h3 class="pokemonName">Name: </h3> `;
+      pokemonCard.innerHTML += `<p class ="nameInformation"> ${value}</p>`;
     }
     else if (key === "abilities"){
-      pokemonCard.innerHTML += `<h3 class="abilitiesHeading"> Abilities: <h3>`
+      pokemonCard.innerHTML += `<h3 class="abilitiesHeading"> Abilities: </h3>`
 
       let abilityArr = value;
       for(let i = 0; i < abilityArr.length; i++){
         let abName = abilityArr[i].ability.name;
-        pokemonCard.innerHTML += `<p class="pokemonAbilities">${abName}<p>`; 
+        pokemonCard.innerHTML += `<p class="pokemonAbilities">${abName}</p>`; 
     }
   }
     else if(key === "statistics"){
       let statsArr = value;
-      pokemonCard.innerHTML += `<h3 class="statsHeading"> Statistics: <h3>`;
+      pokemonCard.innerHTML += `<h3 class="statsHeading"> Statistics: </h3>`;
 
       for(let i = 0; i < statsArr.length; i++){
       let statsName = statsArr[i].stat.name;
       let statsAmount = statsArr[i].base_stat;
-      pokemonCard.innerHTML += `<p class="pokemonAbilities">${statsName}: ${statsAmount}<p>`;
+      pokemonCard.innerHTML += `<p class="pokemonAbilities">${statsName}: ${statsAmount}</p>`;
       }
   }
 }

@@ -9,5 +9,3 @@ describe("getPokemonName", () => {
     expect(getPokemonName(input)).toEqual("joe" );
   });
 });
-
-//codepen to debug - 
