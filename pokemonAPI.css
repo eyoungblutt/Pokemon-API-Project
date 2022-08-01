@@ -45,7 +45,7 @@
   margin-bottom: 100px;
 }
 
-#pokemonImage {
+.pokemonImage {
   display: flex;
   justify-content: center;
   margin: 20px;
@@ -56,48 +56,44 @@
   border: 1px, solid, purple;
 }
 
-#pokemonName {
+.pokemonName {
   margin: 0px;
   margin-top: 0px;
   font-size: 30px;
   color: rgb(51, 152, 132);
 }
 
-#nameInformation {
+.nameInformation {
   color: black;
   font-size: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
-#abilitiesHeading {
+.abilitiesHeading {
   margin-bottom: 2px;
   font-size: 30px;
   color: rgb(51, 152, 132);
 }
 
-#pokemonAbilities {
+.pokemonAbilities {
   color: black;
   font-size: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
-#statsHeading {
+.statsHeading {
   margin-bottom: 2px;
   font-size: 30px;
   color: rgb(51, 152, 132);
 }
 
-#pokemonStats {
+.pokemonStats {
   color: black;
   font-size: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
-}
-
-#newDiv {
-  display: flexbox;
 }
 
 /*# sourceMappingURL=pokemonAPI.css.map */

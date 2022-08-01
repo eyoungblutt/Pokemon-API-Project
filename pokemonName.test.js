@@ -1,12 +1,12 @@
-import { displayPokemonName } from './pokemonName';
+import { getPokemonName } from './pokemonName';
 
 //passes
 
-describe("displayPokemonName", () => {
+describe("getPokemonName", () => {
   test("it should dispmay name from data given", () => {
     const input = 
       { name: "joe" }
-    expect(displayPokemonName(input)).toEqual("joe" );
+    expect(getPokemonName(input)).toEqual("joe" );
   });
 });
 

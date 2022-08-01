@@ -1,6 +1,6 @@
-import { displayPokemonAbilities } from "./pokemonAbilities.js";
+import { getPokemonAbilities } from "./pokemonAbilities.js";
 
-describe("displayPokemonAbilities", () => {
+describe("getPokemonAbilities", () => {
   test("it should get the pokemon abilities from data", () => {
     let input = {abilities: [{
       ability: {
@@ -9,7 +9,6 @@ describe("displayPokemonAbilities", () => {
     } 
   ]
   }
-
-  expect(displayPokemonAbilities(input)).toEqual("kicking");
+  expect(getPokemonAbilities(input)).toEqual(input.abilities);
   })
 })

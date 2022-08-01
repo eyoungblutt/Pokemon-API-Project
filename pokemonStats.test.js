@@ -1,8 +1,8 @@
-import { displayPokemonStats } from './pokemonStats.js';
+import { getPokemonStats } from './pokemonStats.js';
 
 //passes
 
-describe("displayPokemonStats", () => {
+describe("getPokemonStats", () => {
   test("it should get the pokemon stats from data", () => {
     let input = {stats: [
       {base_stat: 5,
@@ -11,6 +11,7 @@ describe("displayPokemonStats", () => {
         }
       } 
     ]}
-expect(displayPokemonStats(input)).toEqual("Joe: 5");
+  
+expect(getPokemonStats(input)).toEqual(input.stats);
 })
 })

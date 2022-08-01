@@ -1,8 +1,13 @@
-import { displayPokemonImage } from './PokemonImage.js';
-import { displayPokemonName } from './pokemonName.js';
-import { displayPokemonAbilities } from './pokemonAbilities.js';
-import { displayPokemonStats } from './pokemonStats.js';
+import { getPokemonImage } from './PokemonImage.js';
+import { getPokemonName } from './pokemonName.js';
+import { getPokemonAbilities } from './pokemonAbilities.js';
+import { getPokemonStats } from './pokemonStats.js';
 import { clearFields } from './clearFields.js';
+import { displayPokemonName } from './displayPokemonName.js';
+import { displayPokemonImage } from './displayPokemonImage.js';
+import { displayPokemonAbilities } from './displayPokemonAbilities.js';
+import { displayPokemonStatistics } from './displayPokemonStatistics.js';
+
 
 
 let searchQuery = document.getElementById("search");
@@ -18,10 +23,15 @@ let callAPI = () => {
 
 
 document.getElementById("errorMessage").innerText = "";
-displayPokemonImage(data);
-//displayPokemonName(data);
-displayPokemonAbilities(data);
-displayPokemonStats(data);
+getPokemonImage(data);
+getPokemonName(data);
+getPokemonAbilities(data);
+getPokemonStats(data);
+
+displayPokemonImage(getPokemonImage(data));
+displayPokemonName(getPokemonName(data));
+displayPokemonAbilities(getPokemonAbilities(data));
+displayPokemonStatistics(getPokemonStats(data));
 
   class pokemonData {
     constructor(image, pokemonName, abilities, statistics) {
@@ -29,7 +39,6 @@ displayPokemonStats(data);
       this.pokemonName = pokemonName,
       this.abilities = abilities,
       this.statistics = statistics;
-
     }
   };
 
@@ -54,57 +63,33 @@ for(let i = 0; i < outLocalStorage.length; i++) {
   for(let [key, value] of Object.entries(newObjectArr[0])){
 
     if(key === "image"){
-      let newImage = document.createElement("img"); 
-      newImage.setAttribute("src", value);
-      newImage.id = "pokemonImage";
-      document.getElementById("pokemonCard").appendChild(newImage);
+      pokemonCard.innerHTML += `<img src="${value}" class="pokemonImage">`
     }
     else if (key === "pokemonName"){ 
-
-      let newHeading = document.createElement("h3");
-      newHeading.innerText = "Name: ";
-      newHeading.id = "pokemonName";
-      let nameInformation = document.createElement("p");
-      nameInformation.innerText = value;
-      nameInformation.id = "nameInformation";
-      document.getElementById("pokemonCard").appendChild(newHeading);
-      document.getElementById("pokemonCard").appendChild(nameInformation);
+      pokemonCard.innerHTML += `<h3 class="pokemonName">Name: <h3>
+      <p class ="nameInformation"> ${value}<p>`;
     }
     else if (key === "abilities"){
-      let abilitiesHeading = document.createElement("h3");
-      abilitiesHeading.id = "abilitiesHeading";
-      abilitiesHeading.innerText = "Abilities: ";
-      document.getElementById("pokemonCard").appendChild(abilitiesHeading);
-    
-    
+      pokemonCard.innerHTML += `<h3 class="abilitiesHeading"> Abilities: <h3>`
+
       let abilityArr = value;
       for(let i = 0; i < abilityArr.length; i++){
         let abName = abilityArr[i].ability.name;
-        let newAbility = document.createElement("p"); 
-        newAbility.id = "pokemonAbilities";
-        newAbility.innerText = abName;
-        document.getElementById("pokemonCard").appendChild(newAbility);}
+        pokemonCard.innerHTML += `<p class="pokemonAbilities">${abName}<p>`; 
     }
+  }
     else if(key === "statistics"){
       let statsArr = value;
-      let statsHeading = document.createElement("h3");
-      statsHeading.id = "statsHeading";
-      statsHeading.innerText = "Statistics: "
-      document.getElementById("pokemonCard").appendChild(statsHeading);
+      pokemonCard.innerHTML += `<h3 class="statsHeading"> Statistics: <h3>`;
 
       for(let i = 0; i < statsArr.length; i++){
       let statsName = statsArr[i].stat.name;
       let statsAmount = statsArr[i].base_stat;
-      let newStats = document.createElement("p"); 
-      newStats.id = "pokemonStats";
-      newStats.innerText = `${statsName}: ${statsAmount}`;
-      document.getElementById("pokemonCard").appendChild(newStats);
+      pokemonCard.innerHTML += `<p class="pokemonAbilities">${statsName}: ${statsAmount}<p>`;
       }
-  
   }
 }
 }
-
 
 //------------------------------------------------------------------------------
 
