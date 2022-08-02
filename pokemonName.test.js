@@ -1,7 +1,5 @@
 import { getPokemonName } from './pokemonName';
 
-//passes
-
 describe("getPokemonName", () => {
   test("it should dispmay name from data given", () => {
     const input = 

@@ -7,6 +7,7 @@ import { displayPokemonName } from "./displayPokemonName.js";
 import { displayPokemonImage } from "./displayPokemonImage.js";
 import { displayPokemonAbilities } from "./displayPokemonAbilities.js";
 import { displayPokemonStatistics } from "./displayPokemonStatistics.js";
+import { pokemonData } from './pokemonConstuctor.js';
 
 let searchQuery = document.getElementById("search");
 let objectArr = [];
@@ -23,24 +24,11 @@ let callAPI = () => { // GK: Why assign via arrows?
         let data = await response.json();
 
         document.getElementById("errorMessage").innerText = "";
-        getPokemonImage(data);
-        getPokemonName(data);
-        getPokemonAbilities(data);
-        getPokemonStats(data);
-
+        
         displayPokemonImage(getPokemonImage(data));
         displayPokemonName(getPokemonName(data));
         displayPokemonAbilities(getPokemonAbilities(data));
         displayPokemonStatistics(getPokemonStats(data));
-
-        class pokemonData { // GK: Why define a class and use it below?
-          constructor(image, pokemonName, abilities, statistics) {
-            this.image = image;
-            (this.pokemonName = pokemonName),
-              (this.abilities = abilities),
-              (this.statistics = statistics);
-          }
-        }
 
         let newPokemonData = new pokemonData(
           data.sprites.front_default,
@@ -59,39 +47,29 @@ let callAPI = () => { // GK: Why assign via arrows?
 
 callAPI();
 //------------------------------------------------------------------------------
-//gets individual key value pairs for each pokemon's details and displays on screen.
 
-let outLocalStorage = JSON.parse(window.localStorage.getItem("objectArr")); // GK: What data type is outLocalStorage?
 
-for (let i = 0; i < outLocalStorage.length; i++) { // GK: Arrays have a .forEach method
-  let newObjectArr = [];
-  newObjectArr.push(outLocalStorage[i]); // GK: Why push outLocalStorage to newObjectArr?
-  for (let [key, value] of Object.entries(newObjectArr[0])) { // What data type is newObjectArr[0]?
-    if (key === "image") { // GK: Could these be referenced another way than if statements on key?
-      pokemonCard.innerHTML += `<img src="${value}" class="pokemonImage">`;
-    } else if (key === "pokemonName") {
-      pokemonCard.innerHTML += `<h3 class="pokemonName">Name: </h3> `;
-      pokemonCard.innerHTML += `<p class ="nameInformation"> ${value}</p>`;
-    } else if (key === "abilities") {
-      pokemonCard.innerHTML += `<h3 class="abilitiesHeading"> Abilities: </h3>`;
+let outLocalStorage = JSON.parse(window.localStorage.getItem("objectArr")); // GK: What data type is outLocalStorage? 
 
-      let abilityArr = value;
-      for (let i = 0; i < abilityArr.length; i++) {
-        let abName = abilityArr[i].ability.name;
-        pokemonCard.innerHTML += `<p class="pokemonAbilities">${abName}</p>`;
-      }
-    } else if (key === "statistics") {
-      let statsArr = value;
-      pokemonCard.innerHTML += `<h3 class="statsHeading"> Statistics: </h3>`;
+outLocalStorage.forEach( function(localStorageData) {
+  pokemonCard.innerHTML += `<img src="${localStorageData.image}" class="pokemonImage">`;
 
-      for (let i = 0; i < statsArr.length; i++) {
-        let statsName = statsArr[i].stat.name;
-        let statsAmount = statsArr[i].base_stat;
-        pokemonCard.innerHTML += `<p class="pokemonAbilities">${statsName}: ${statsAmount}</p>`;
-      }
+  pokemonCard.innerHTML += `<h3 class="pokemonName">Name: </h3> `;
+  pokemonCard.innerHTML += `<p class ="nameInformation"> ${localStorageData.pokemonName}</p>`;
+
+  pokemonCard.innerHTML += `<h3 class="abilitiesHeading"> Abilities: </h3>`;
+    for (let i = 0; i < localStorageData.abilities.length; i++) {
+      let abName = localStorageData.abilities[i].ability.name;
+      pokemonCard.innerHTML += `<p class="pokemonAbilities">${abName}</p>`;
     }
-  }
-}
+
+  pokemonCard.innerHTML += `<h3 class="statsHeading"> Statistics: </h3>`;
+    for (let i = 0; i < localStorageData.statistics.length; i++) {
+      let statsName = localStorageData.statistics[i].stat.name;
+      let statsAmount = localStorageData.statistics[i].base_stat;
+      pokemonCard.innerHTML += `<p class="pokemonAbilities">${statsName}: ${statsAmount}</p>`;
+    }
+  });
 
 //------------------------------------------------------------------------------
 

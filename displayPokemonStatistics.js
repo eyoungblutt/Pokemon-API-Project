@@ -4,11 +4,9 @@ export let displayPokemonStatistics =(pokemonDetails) => {
   statsHeading.innerText = "Statistics: "
   document.getElementById("pokemonCard").appendChild(statsHeading);
 
-  let statsArr = [...pokemonDetails];
-  
-  for(let i = 0; i < statsArr.length; i++){
-    let statsName = statsArr[i].stat.name;
-    let statsAmount = statsArr[i].base_stat;
+  for(let i = 0; i < pokemonDetails.length; i++){
+    let statsName = pokemonDetails[i].stat.name;
+    let statsAmount = pokemonDetails[i].base_stat;
 
     let newStats = document.createElement("p"); 
     newStats.className = "pokemonStats";

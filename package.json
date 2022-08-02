@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/eyoungblutt/Pokemon-API-Project#readme",
   "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/node": "^7.18.10",
     "@babel/preset-env": "^7.18.9",
     "jest": "^28.1.3"
   },
