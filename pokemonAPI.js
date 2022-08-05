@@ -1,19 +1,12 @@
-import { getPokemonImage } from "./PokemonImage.js";
-import { getPokemonName } from "./pokemonName.js";
-import { getPokemonAbilities } from "./pokemonAbilities.js";
-import { getPokemonStats } from "./pokemonStats.js";
+import { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities, newPokemonData} from './pokemonData.js';
 import { clearFields } from "./clearFields.js";
-import { displayPokemonName } from "./displayPokemonName.js";
-import { displayPokemonImage } from "./displayPokemonImage.js";
-import { displayPokemonAbilities } from "./displayPokemonAbilities.js";
-import { displayPokemonStatistics } from "./displayPokemonStatistics.js";
-import { pokemonData } from './pokemonConstuctor.js';
+import { displayPokemonAbilities, displayPokemonStatistics, displayPokemonName, displayPokemonImage} from './displayPokemon.js';
 
 let searchQuery = document.getElementById("search");
 let objectArr = [];
 
 //--------------------------------------------------------------------------------
-let callAPI = () => { // GK: Why assign via arrows?
+function callAPI() {
   document
     .getElementById("searchButton")
     .addEventListener("click", async () => { // GK: How will you unit test all this code if it's inside a click event listener?
@@ -30,12 +23,6 @@ let callAPI = () => { // GK: Why assign via arrows?
         displayPokemonAbilities(getPokemonAbilities(data));
         displayPokemonStatistics(getPokemonStats(data));
 
-        let newPokemonData = new pokemonData(
-          data.sprites.front_default,
-          data.name,
-          data.abilities,
-          data.stats
-        );
         objectArr.push(newPokemonData);
         localStorage.setItem("objectArr", JSON.stringify(objectArr));
       } else {
