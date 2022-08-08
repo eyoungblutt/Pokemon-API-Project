@@ -1,6 +1,6 @@
-import { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities, newPokemonData} from './pokemonData.js';
+import { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities} from './pokemonData.js';
 import { clearFields } from "./clearFields.js";
-import { displayPokemonAbilities, displayPokemonStatistics, displayPokemonName, displayPokemonImage} from './displayPokemon.js';
+import { displayPokemonAbilities, displayPokemonStatistics, displayPokemonName, displayPokemonImage,} from './displayPokemon.js';
 
 let searchQuery = document.getElementById("search");
 let objectArr = [];
@@ -22,6 +22,13 @@ function callAPI() {
         displayPokemonName(getPokemonName(data));
         displayPokemonAbilities(getPokemonAbilities(data));
         displayPokemonStatistics(getPokemonStats(data));
+
+        let newPokemonData = (image, pokemonName, abilities, statistics) => {
+          image= data.sprites.front_default,
+          pokemonName= data.name,
+          abilities= data.abilities,
+          statistics= data.stats
+        };
 
         objectArr.push(newPokemonData);
         localStorage.setItem("objectArr", JSON.stringify(objectArr));

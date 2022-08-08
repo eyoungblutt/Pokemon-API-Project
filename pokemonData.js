@@ -15,11 +15,6 @@
     return data.abilities;
     }
 
-    let newPokemonData = (image, pokemonName, abilities, statistics) => {
-      image= data.sprites.front_default,
-      pokemonName= data.name,
-      abilities= data.abilities,
-      statistics= data.stats
-    };
+    
 
-export { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities, newPokemonData}
+export { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities}
