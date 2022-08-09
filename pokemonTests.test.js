@@ -1,4 +1,4 @@
-import { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities, newPokemonData} from './pokemonData.js';
+import { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities, } from './pokemonData.js';
 
 describe("getPokemonStats", () => {
   test("it should get the pokemon stats from data", () => {
@@ -45,13 +45,3 @@ describe("getPokemonAbilities", () => {
   })
 })
 
-describe("newPokemonData", () => {
-  test("it should dispmay object from data given", () => {
-    newPokemonData("www.image.com", "joe",  "50", "jumping" );
-      console.log(pokemonData);
-      console.log(pokemonData.image);
-    expect(newPokemonData(pokemonData.image)).toEqual( "www.image.com" );
-    expect(newPokemonData(pokemonData.name)).toEqual( "joe" );
-
-  });
-});

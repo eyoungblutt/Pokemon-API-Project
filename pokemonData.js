@@ -15,6 +15,7 @@
     return data.abilities;
     }
 
-    
 
-export { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities}
+  
+
+export { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities, }

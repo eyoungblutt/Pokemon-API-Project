@@ -23,14 +23,15 @@ function callAPI() {
         displayPokemonAbilities(getPokemonAbilities(data));
         displayPokemonStatistics(getPokemonStats(data));
 
-        let newPokemonData = (image, pokemonName, abilities, statistics) => {
-          image= data.sprites.front_default,
-          pokemonName= data.name,
-          abilities= data.abilities,
-          statistics= data.stats
+        let newPokemonData = {
+          image: data.sprites.front_default,
+          pokemonName: data.name,
+          abilities: data.abilities,
+          statistics: data.stats
         };
 
         objectArr.push(newPokemonData);
+
         localStorage.setItem("objectArr", JSON.stringify(objectArr));
       } else {
         document.getElementById("errorMessage").innerText =
@@ -43,7 +44,7 @@ callAPI();
 //------------------------------------------------------------------------------
 
 
-let outLocalStorage = JSON.parse(window.localStorage.getItem("objectArr")); // GK: What data type is outLocalStorage? 
+let outLocalStorage = JSON.parse(window.localStorage.getItem("objectArr"));
 
 outLocalStorage.forEach( function(localStorageData) {
   pokemonCard.innerHTML += `<img src="${localStorageData.image}" class="pokemonImage">`;
@@ -68,10 +69,8 @@ outLocalStorage.forEach( function(localStorageData) {
 //------------------------------------------------------------------------------
 
 let clearAll = document.getElementById("clearAll");
-window.onload = function () { // GK: Why add this event listener onLoad?
   clearAll.addEventListener("click", function () {
     clearFields();
   });
-};
 
 //---------------------------------------------------------------------------
