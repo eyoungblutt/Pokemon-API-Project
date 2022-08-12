@@ -1,37 +1,44 @@
- let displayPokemonAbilities = (pokemonDetials) => {
+ let displayPokemonAbilities = () => {
   let abilitiesHeading = document.createElement("h3");
   abilitiesHeading.className = "abilitiesHeading";
   abilitiesHeading.innerText = "Abilities: ";
- // document.getElementById("pokemonCard").appendChild(abilitiesHeading);
+return abilitiesHeading;
+ };
 
-  
-  for(let i = 0; i < pokemonDetials.length; i++){
-  let newAbility = document.createElement("p"); 
-    newAbility.className = "pokemonAbilities";
-    newAbility.innerText = pokemonDetials[i].ability.name;
-   // document.getElementById("pokemonCard").appendChild(newAbility) // GK: This function still knows about something outside itself?
+  let displayPokemonAbilitiesDetail = (pokemonDetials) => {
+    for(let i = 0; i < pokemonDetials.length; i++){
+      let newAbility = document.createElement("p"); 
+        newAbility.className = "pokemonAbilities";
+        newAbility.innerText = pokemonDetials[i].ability.name;
+       return newAbility;
   }
-  }
+  return newAbility;
+}
+ 
 
    let displayPokemonImage = (pokemonDetails) => {
     let newImage = document.createElement("img"); 
     newImage.setAttribute("src", pokemonDetails);
     newImage.className = "pokemonImage";
+    console.log(newImage);
+    return newImage;
    // document.getElementById("pokemonCard").appendChild(newImage);
   }
 
-   let displayPokemonName = (pokemonDetails) => {
-  
+   let displayPokemonNameHeading = (pokemonDetails) => {
     let newHeading = document.createElement("h3");
     newHeading.className = "pokemonName";
     newHeading.innerText = "Name: ";
+    return newHeading;
+   };
     
+   let displayPokemonName = (pokemonDetails) => {
     let nameInformation = document.createElement("p");
     nameInformation.innerText = pokemonDetails;
     nameInformation.className = "nameInformation";
-   // document.getElementById("pokemonCard").appendChild(newHeading);
-   // document.getElementById("pokemonCard").appendChild(nameInformation);
-  }
+    return nameInformation;
+   }
+   
 
    let displayPokemonStatistics =(pokemonDetails) => {
     let statsHeading = document.createElement("h3");
@@ -52,4 +59,4 @@
     
   }
 
-  export { displayPokemonAbilities, displayPokemonStatistics, displayPokemonName, displayPokemonImage}
+  export { displayPokemonAbilities, displayPokemonStatistics, displayPokemonName, displayPokemonImage, displayPokemonNameHeading, displayPokemonAbilitiesDetail}

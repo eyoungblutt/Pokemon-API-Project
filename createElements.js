@@ -1,4 +1,4 @@
-import { displayPokemonImage } from "./displayPokemon";
+import { displayPokemonImage } from "./displayPokemon.js";
 
 // export let createElementOne = () => {
 //   let newElement = document.createElement("div");
@@ -6,20 +6,20 @@ import { displayPokemonImage } from "./displayPokemon";
 //   return newElement;
   
 // }
+ let createElementTwo = ( displayPokemonImage) => {
+  let data = document.createElement("div");
+ data.innerText = displayPokemonImage;
+  return data;
+};
 
-export let createElementTwo = () => {
-  let newElement = document.createElement("div");
-  newElement.innerText = displayPokemonImage(pokemonDetails);
-  return newElement;
-    
-  }
-
-  export let createElementThree = () => {
+   let createElementThree = () => {
     return document.createElement("div");
     
   }
 
-  export let createElementFour = () => {
+   let createElementFour = () => {
     return document.createElement("div");
     
   }
+
+  export { createElementFour, createElementThree, createElementTwo };

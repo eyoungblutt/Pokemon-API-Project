@@ -1,7 +1,7 @@
 import { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities} from './pokemonData.js';
 import { clearFields } from "./clearFields.js";
-import { displayPokemonAbilities, displayPokemonStatistics, displayPokemonName, displayPokemonImage,} from './displayPokemon.js';
-import { createElementOne, createElementTwo, createElementFour, createElementThree } from './createElements.js';
+import { displayPokemonAbilities, displayPokemonStatistics, displayPokemonName, displayPokemonImage, displayPokemonNameHeading, displayPokemonAbilitiesDetail} from './displayPokemon.js';
+//import { createElementTwo, createElementFour, createElementThree } from './createElements.js';
 
 let searchQuery = document.getElementById("search");
 let objectArr = [];
@@ -19,11 +19,18 @@ function callAPI() {
 
         document.getElementById("errorMessage").innerText = "";
 
-        let newElementTwo = document.getElementById("pokemonCard").appendChild(createElementTwo());
-        newElementTwo.innerText = displayPokemonImage(getPokemonImage(data));
+        document.getElementById("pokemonCard").appendChild(displayPokemonImage(getPokemonImage(data)));
 
- console.log(getPokemonImage(data));
- console.log(displayPokemonImage(getPokemonImage(data)));
+        document.getElementById("pokemonCard").appendChild(displayPokemonNameHeading(getPokemonName(data)));
+        document.getElementById("pokemonCard").appendChild(displayPokemonName(getPokemonName(data)));
+        
+        document.getElementById("pokemonCard").appendChild(displayPokemonAbilities(getPokemonAbilities(data)));
+        document.getElementById("pokemonCard").appendChild(displayPokemonAbilitiesDetail(getPokemonAbilities(data)));
+
+
+        document.getElementById("pokemonCard").appendChild(displayPokemonStatistics(getPokemonStats(data)));
+        
+        displayPokemonAbilitiesDetail
 
 
         
