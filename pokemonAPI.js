@@ -1,60 +1,41 @@
-import { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities} from './pokemonData.js';
+import { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities, newPokemonData} from './pokemonData.js';
 import { clearFields } from "./clearFields.js";
-import { displayPokemonAbilities, displayPokemonStatistics, displayPokemonName, displayPokemonImage, displayPokemonNameHeading, displayPokemonAbilitiesDetail} from './displayPokemon.js';
-//import { createElementTwo, createElementFour, createElementThree } from './createElements.js';
+import { displayPokemonAbilities, displayPokemonStatistics, displayPokemonName, displayPokemonImage, displayPokemonNameHeading, displayPokemonAbilitiesDetail, displayPokemonStatisticsDetials, } from './displayPokemon.js';
 
 let searchQuery = document.getElementById("search");
 let objectArr = [];
 
 //--------------------------------------------------------------------------------
-function callAPI() {
+
   document
     .getElementById("searchButton")
-    .addEventListener("click", async () => { // GK: How will you unit test all this code if it's inside a click event listener?
+    .addEventListener("click", async () => { 
       let response = await fetch(
         `https://pokeapi.co/api/v2/pokemon/${searchQuery.value.toLowerCase()}`
       );
-      if (response.ok === true) {
+       if (response.ok === true) {
         let data = await response.json();
 
         document.getElementById("errorMessage").innerText = "";
 
-        document.getElementById("pokemonCard").appendChild(displayPokemonImage(getPokemonImage(data)));
+        document.getElementById("pokemonCard").appendChild(displayPokemonImage(getPokemonImage(data))); 
 
         document.getElementById("pokemonCard").appendChild(displayPokemonNameHeading(getPokemonName(data)));
         document.getElementById("pokemonCard").appendChild(displayPokemonName(getPokemonName(data)));
         
-        document.getElementById("pokemonCard").appendChild(displayPokemonAbilities(getPokemonAbilities(data)));
-        document.getElementById("pokemonCard").appendChild(displayPokemonAbilitiesDetail(getPokemonAbilities(data)));
 
+        document.getElementById("pokemonCard").appendChild(displayPokemonAbilities(getPokemonAbilities(data)));
+        
+       document.getElementById("pokemonCard").appendChild(displayPokemonAbilitiesDetail(getPokemonAbilities(data)));
+         
+        
 
         document.getElementById("pokemonCard").appendChild(displayPokemonStatistics(getPokemonStats(data)));
         
-        displayPokemonAbilitiesDetail
+        document.getElementById("pokemonCard").appendChild(displayPokemonStatisticsDetials(getPokemonStats(data)));
+        displayPokemonStatisticsDetials
 
-
-        
-        // let newElement = document.getElementById("pokemonCard").appendChild(createElementOne());
-        // //newElement.innerText = displayPokemonName(getPokemonName(data));
-        
-        // let newElementThree = document.getElementById("pokemonCard").appendChild(createElementThree());
-        // newElementThree.innerText = displayPokemonAbilities(getPokemonAbilities(data));
-
-        // let newElementFour = document.getElementById("pokemonCard").appendChild(createElementFour());
-        // newElementFour.innerText = getPokemonStats(data);
-        //
-        // 
-        // displayPokemonAbilities(getPokemonAbilities(data));
-        // displayPokemonStatistics(getPokemonStats(data));
-
-        let newPokemonData = {
-          image: data.sprites.front_default,
-          pokemonName: data.name,
-          abilities: data.abilities,
-          statistics: data.stats
-        };
-
-        objectArr.push(newPokemonData);
+  objectArr.push(newPokemonData(data));
 
         localStorage.setItem("objectArr", JSON.stringify(objectArr));
       } else {
@@ -62,9 +43,8 @@ function callAPI() {
           "Oops! Please double check your entry is a pokemon name or index number and try again.";
       }
     });
-};
 
-callAPI();
+
 //------------------------------------------------------------------------------
 
 

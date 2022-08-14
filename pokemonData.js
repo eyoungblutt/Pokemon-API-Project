@@ -16,6 +16,15 @@
     }
 
 
+    let newPokemonData = (data) => {
+      let newPokemonData = {
+        image: data.sprites.front_default,
+      pokemonName: data.name,
+      abilities: data.abilities,
+      statistics: data.stats
+    };
+    return newPokemonData;
+  }
   
 
-export { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities, }
+export { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities, newPokemonData }
