@@ -1,3 +1,5 @@
+import { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities} from './pokemonData.js';
+
 let displayPokemonAbilities = () => {
   let abilitiesHeading = document.createElement("h3");
   abilitiesHeading.className = "abilitiesHeading";
@@ -5,17 +7,16 @@ let displayPokemonAbilities = () => {
   return abilitiesHeading;
 };
 
- let displayPokemonAbilitiesDetail = (pokemonDetials) => {
+let displayPokemonAbilitiesDetail = (pokemonDetials) => {
+  console.log(pokemonDetials);
   for(let i = 0; i < pokemonDetials.length; i++){
     let newAbility = document.createElement("p"); 
-      newAbility.className = "pokemonAbilities";
-      newAbility.innerText = pokemonDetials[i].ability.name;
-      console.log(newAbility);
-      return newAbility; 
+    newAbility.className = "pokemonAbilities";
+    newAbility.innerText = pokemonDetials[i].ability.name;
+    console.log(newAbility)  ; 
   } 
 }
  
-
 let displayPokemonImage = (pokemonDetails) => {
   let newImage = document.createElement("img"); 
   newImage.setAttribute("src", pokemonDetails);
@@ -46,14 +47,22 @@ let displayPokemonStatistics = () => {
   
 let displayPokemonStatisticsDetials = (pokemonDetails) => {
   for(let i = 0; i < pokemonDetails.length; i++){
-  let statsName = pokemonDetails[i].stat.name;
-  let statsAmount = pokemonDetails[i].base_stat;
-
-  let newStats = document.createElement("p"); 
-  newStats.className = "pokemonStats";
-  newStats.innerText = `${statsName}: ${statsAmount}`;
-  return newStats;
-}
+    let newStats = document.createElement("p"); 
+    newStats.className = "pokemonStats";
+    newStats.innerText = `${pokemonDetails[i].stat.name}: ${pokemonDetails[i].base_stat}`;
+    console.log(newStats);
 }
 
-  export { displayPokemonAbilities, displayPokemonStatistics, displayPokemonName, displayPokemonImage, displayPokemonNameHeading, displayPokemonAbilitiesDetail, displayPokemonStatisticsDetials}
+}
+
+export function appendData(data){
+  document.getElementById("pokemonCard").appendChild(displayPokemonImage(getPokemonImage(data))); 
+  document.getElementById("pokemonCard").appendChild(displayPokemonNameHeading(getPokemonName(data)));
+  document.getElementById("pokemonCard").appendChild(displayPokemonName(getPokemonName(data)));
+  document.getElementById("pokemonCard").appendChild(displayPokemonAbilities(getPokemonAbilities(data)));
+  document.getElementById("pokemonCard").appendChild(displayPokemonAbilitiesDetail(getPokemonAbilities(data)));
+  
+  document.getElementById("pokemonCard").appendChild(displayPokemonStatistics(getPokemonStats(data)));
+  document.getElementById("pokemonCard").appendChild(displayPokemonStatisticsDetials(getPokemonStats(data)));
+}
+

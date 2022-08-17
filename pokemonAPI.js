@@ -1,6 +1,6 @@
-import { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities, newPokemonData} from './pokemonData.js';
+import { newPokemonData, callAPI} from './pokemonData.js';
 import { clearFields } from "./clearFields.js";
-import { displayPokemonAbilities, displayPokemonStatistics, displayPokemonName, displayPokemonImage, displayPokemonNameHeading, displayPokemonAbilitiesDetail, displayPokemonStatisticsDetials, } from './displayPokemon.js';
+import { appendData } from './displayPokemon.js';
 
 let searchQuery = document.getElementById("search");
 let objectArr = [];
@@ -10,33 +10,13 @@ let objectArr = [];
   document
     .getElementById("searchButton")
     .addEventListener("click", async () => { 
-      let response = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${searchQuery.value.toLowerCase()}`
-      );
-       if (response.ok === true) {
+      let response = await fetch (callAPI(searchQuery));
+
+    if (response.ok === true) {
         let data = await response.json();
-
         document.getElementById("errorMessage").innerText = "";
-
-        document.getElementById("pokemonCard").appendChild(displayPokemonImage(getPokemonImage(data))); 
-
-        document.getElementById("pokemonCard").appendChild(displayPokemonNameHeading(getPokemonName(data)));
-        document.getElementById("pokemonCard").appendChild(displayPokemonName(getPokemonName(data)));
-        
-
-        document.getElementById("pokemonCard").appendChild(displayPokemonAbilities(getPokemonAbilities(data)));
-        
-       document.getElementById("pokemonCard").appendChild(displayPokemonAbilitiesDetail(getPokemonAbilities(data)));
-         
-        
-
-        document.getElementById("pokemonCard").appendChild(displayPokemonStatistics(getPokemonStats(data)));
-        
-        document.getElementById("pokemonCard").appendChild(displayPokemonStatisticsDetials(getPokemonStats(data)));
-        displayPokemonStatisticsDetials
-
-  objectArr.push(newPokemonData(data));
-
+        appendData(data);
+        objectArr.push(newPokemonData(data));
         localStorage.setItem("objectArr", JSON.stringify(objectArr));
       } else {
         document.getElementById("errorMessage").innerText =
@@ -45,6 +25,7 @@ let objectArr = [];
     });
 
 
+    
 //------------------------------------------------------------------------------
 
 
