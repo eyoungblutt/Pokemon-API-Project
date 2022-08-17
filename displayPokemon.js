@@ -8,13 +8,15 @@ let displayPokemonAbilities = () => {
 };
 
 let displayPokemonAbilitiesDetail = (pokemonDetials) => {
-  console.log(pokemonDetials);
-  for(let i = 0; i < pokemonDetials.length; i++){
-    let newAbility = document.createElement("p"); 
-    newAbility.className = "pokemonAbilities";
-    newAbility.innerText = pokemonDetials[i].ability.name;
-    console.log(newAbility)  ; 
-  } 
+  let newParagraph = document.createElement('div');
+  newParagraph.className = ("newParagraph");
+   for(let i = 0; i < pokemonDetials.length; i++){
+     let newAbility = document.createElement('p');
+     newAbility.className = "pokemonAbilities"
+     newAbility.innerText = pokemonDetials[i].ability.name
+     newParagraph.appendChild(newAbility); 
+    } 
+  return newParagraph;
 }
  
 let displayPokemonImage = (pokemonDetails) => {
@@ -46,13 +48,15 @@ let displayPokemonStatistics = () => {
 }
   
 let displayPokemonStatisticsDetials = (pokemonDetails) => {
+  let newParagraph = document.createElement('div');
+  newParagraph.className = ("newParagraph");
   for(let i = 0; i < pokemonDetails.length; i++){
     let newStats = document.createElement("p"); 
     newStats.className = "pokemonStats";
     newStats.innerText = `${pokemonDetails[i].stat.name}: ${pokemonDetails[i].base_stat}`;
-    console.log(newStats);
-}
-
+    newParagraph.appendChild(newStats); 
+  } 
+  return newParagraph;
 }
 
 export function appendData(data){
