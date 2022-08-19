@@ -26,7 +26,7 @@ let newPokemonData = (data) => {
 }
   
 function callAPI(searchQuery){
-  return `https://pokeapi.co/api/v2/pokemon/${searchQuery.value.toLowerCase()}`
+  return `https://pokeapi.co/api/v2/pokemon/${searchQuery.value?.toLowerCase()}`
 }
 
 export { getPokemonImage, getPokemonName, getPokemonStats, getPokemonAbilities, newPokemonData, callAPI }

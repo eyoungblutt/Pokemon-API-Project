@@ -32,10 +32,10 @@ let objectArr = [];
 let outLocalStorage = JSON.parse(window.localStorage.getItem("objectArr"));
 
 outLocalStorage.forEach( function(localStorageData) {
+  pokemonCard.innerHTML += `<p class ="nameInformation"> ${localStorageData.pokemonName}</p>`;
+
   pokemonCard.innerHTML += `<img src="${localStorageData.image}" class="pokemonImage">`;
 
-  pokemonCard.innerHTML += `<h3 class="pokemonName">Name: </h3> `;
-  pokemonCard.innerHTML += `<p class ="nameInformation"> ${localStorageData.pokemonName}</p>`;
 
   pokemonCard.innerHTML += `<h3 class="abilitiesHeading"> Abilities: </h3>`;
     for (let i = 0; i < localStorageData.abilities.length; i++) {

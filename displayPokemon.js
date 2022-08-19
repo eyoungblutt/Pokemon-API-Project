@@ -26,12 +26,12 @@ let displayPokemonImage = (pokemonDetails) => {
   return newImage;
 }
 
-let displayPokemonNameHeading = () => {
-  let newHeading = document.createElement("h3");
-  newHeading.className = "pokemonName";
-  newHeading.innerText = "Name: ";
-  return newHeading;
-};
+// let displayPokemonNameHeading = () => {
+//   let newHeading = document.createElement("h3");
+//   newHeading.className = "pokemonName";
+//   newHeading.innerText = "Name: ";
+//   return newHeading;
+// };
     
 let displayPokemonName = (pokemonDetails) => {
   let nameInformation = document.createElement("p");
@@ -59,14 +59,20 @@ let displayPokemonStatisticsDetials = (pokemonDetails) => {
   return newParagraph;
 }
 
+
+
 export function appendData(data){
-  document.getElementById("pokemonCard").appendChild(displayPokemonImage(getPokemonImage(data))); 
-  document.getElementById("pokemonCard").appendChild(displayPokemonNameHeading(getPokemonName(data)));
-  document.getElementById("pokemonCard").appendChild(displayPokemonName(getPokemonName(data)));
-  document.getElementById("pokemonCard").appendChild(displayPokemonAbilities(getPokemonAbilities(data)));
-  document.getElementById("pokemonCard").appendChild(displayPokemonAbilitiesDetail(getPokemonAbilities(data)));
+  let newDiv = document.createElement("div");
+  newDiv.id="pokemonCards";
+  document.getElementById("pokemonCard")?.append(newDiv);
+  document.getElementById("pokemonCards")?.appendChild(displayPokemonName(getPokemonName(data)));
+  document.getElementById("pokemonCards")?.appendChild(displayPokemonImage(getPokemonImage(data))); 
+  // document.getElementById("pokemonCard").appendChild(displayPokemonNameHeading(getPokemonName(data)));
+ 
+  document.getElementById("pokemonCards")?.appendChild(displayPokemonAbilities(getPokemonAbilities(data)));
+  document.getElementById("pokemonCards")?.appendChild(displayPokemonAbilitiesDetail(getPokemonAbilities(data)));
   
-  document.getElementById("pokemonCard").appendChild(displayPokemonStatistics(getPokemonStats(data)));
-  document.getElementById("pokemonCard").appendChild(displayPokemonStatisticsDetials(getPokemonStats(data)));
+  document.getElementById("pokemonCards")?.appendChild(displayPokemonStatistics(getPokemonStats(data)));
+  document.getElementById("pokemonCards")?.appendChild(displayPokemonStatisticsDetials(getPokemonStats(data)));
 }
 
